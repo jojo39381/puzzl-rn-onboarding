@@ -1,0 +1,11 @@
+node_modules/
+.idea/
+.idea_modules/
+.git/
+package-lock.json
+coverage/
+.expo/
+
+lib/
+example/ios
+example/android

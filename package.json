@@ -1,0 +1,158 @@
+{
+  "name": "puzzl-rn-onboarding",
+  "version": "1.0.8",
+  "description": "Puzzl onboarding for React Native",
+  "private": false,
+  "license": "MIT",
+  "keywords": [
+    "Puzzl",
+    "mobile",
+    "onboarding",
+    "react",
+    "native"
+  ],
+  "repository": "https://gitlab.com/puzzl/puzzl-rn-onboarding",
+  "bugs": {
+    "url": "https://gitlab.com/puzzl/puzzl-rn-onboarding/issues"
+  },
+  "homepage": "https://gitlab.com/puzzl/puzzl-rn-onboarding#readme",
+  "main": "lib/commonjs/index",
+  "module": "lib/module/index",
+  "types": "lib/typescript/src/index.d.ts",
+  "react-native": "src/index",
+  "source": "src/index",
+  "files": [
+    "src",
+    "lib",
+    "android",
+    "ios",
+    "cpp",
+    "scripts",
+    "puzzl-rn-onboarding.podspec",
+    "!lib/typescript/example",
+    "!**/__tests__",
+    "!**/__fixtures__",
+    "!**/__mocks__"
+  ],
+  "rnpm": {
+    "assets": [
+      "./src/assets",
+      "./src/assets/fonts",
+      "./src/assets/images"
+    ]
+  },
+  "scripts": {
+    "test": "jest",
+    "typecheck": "tsc --noEmit",
+    "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json}\"",
+    "lint": "eslint --fix --ext js --ext jsx --ext ts --ext tsx .",
+    "prepare": "bob build",
+    "release": "release-it",
+    "example": "yarn --cwd example",
+    "pods": "cd example && pod-install --quiet",
+    "bootstrap": "yarn example && yarn && yarn pods",
+    "postinstall": "node scripts/postinstall --verbose"
+  },
+  "dependencies": {
+    "@react-native-community/datetimepicker": "^3.0.0",
+    "@react-native-community/masked-view": "^0.1.0",
+    "@react-navigation/native": "^5.5.0",
+    "@react-navigation/stack": "^5.5.0",
+    "@veriff/react-native-sdk": "^2.1.0",
+    "axios": "^0.20.0",
+    "chalk": "^4.1.0",
+    "fs-extra": "^9.0.1",
+    "react-native-camera": "^3.0.0",
+    "react-native-gesture-handler": "^1.3.0",
+    "react-native-keyboard-aware-scroll-view": "^0.9.3",
+    "react-native-modal-datetime-picker": "^9.0.0",
+    "react-native-reanimated": "^1.0.0",
+    "react-native-screens": "^2.0.0",
+    "react-native-webview": "^10.0.0",
+    "resolve-package-path": "^3.1.0",
+    "semver": "^7.3.2"
+  },
+  "devDependencies": {
+    "@commitlint/config-conventional": "^8.3.4",
+    "@react-native-community/bob": "^0.16.2",
+    "@react-native-community/eslint-config": "^2.0.0",
+    "@release-it/conventional-changelog": "^1.1.4",
+    "@types/jest": "^26.0.0",
+    "@types/react": "^16.9.19",
+    "@types/react-native": "0.62.13",
+    "@types/react-native-datepicker": "^1.7.0",
+    "@types/react-native-popup-dialog": "^0.16.2",
+    "@typescript-eslint/eslint-plugin": "^4.3.0",
+    "@typescript-eslint/parser": "^4.3.0",
+    "eslint": "^7.2.0",
+    "eslint-config-prettier": "^6.12.0",
+    "eslint-config-typescript": "^3.0.0",
+    "eslint-plugin-react": "^7.21.3",
+    "eslint-plugin-react-native": "^3.10.0",
+    "husky": "^4.2.5",
+    "install-peers-cli": "^2.2.0",
+    "jest": "^26.0.1",
+    "lint-staged": "^10.4.0",
+    "pod-install": "^0.1.0",
+    "prettier": "^2.0.5",
+    "react-native-safe-area-context": "^3.0.0",
+    "release-it": "^14.1.0",
+    "typescript": "^3.8.3"
+  },
+  "peerDependencies": {
+    "react": "*",
+    "react-native": "*",
+    "react-native-safe-area-context": "^3.0.0"
+  },
+  "nativeDependencies": [
+    "@react-native-community/datetimepicker",
+    "@react-native-community/masked-view",
+    "@react-navigation/native",
+    "@react-navigation/stack",
+    "@veriff/react-native-sdk",
+    "react-native-camera",
+    "react-native-gesture-handler",
+    "react-native-reanimated",
+    "react-native-safe-area-context",
+    "react-native-screens",
+    "react-native-webview"
+  ],
+  "jest": {
+    "preset": "react-native",
+    "modulePathIgnorePatterns": [
+      "<rootDir>/example/node_modules",
+      "<rootDir>/lib/"
+    ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged && yarn typecheck"
+    }
+  },
+  "lint-staged": {
+    "*.{js,ts,jsx,tsx,json}": "prettier --write"
+  },
+  "release-it": {
+    "git": {
+      "commitMessage": "chore: release ${version}",
+      "tagName": "v${version}"
+    },
+    "npm": {
+      "publish": true
+    },
+    "plugins": {
+      "@release-it/conventional-changelog": {
+        "preset": "angular"
+      }
+    }
+  },
+  "@react-native-community/bob": {
+    "source": "src",
+    "output": "lib",
+    "targets": [
+      "commonjs",
+      "module",
+      "typescript"
+    ]
+  }
+}
