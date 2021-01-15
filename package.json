@@ -58,7 +58,7 @@
     "@react-native-community/masked-view": "^0.1.0",
     "@react-navigation/native": "^5.5.0",
     "@react-navigation/stack": "^5.5.0",
-    "@veriff/react-native-sdk": "^2.1.0",
+    "@veriff/react-native-sdk": "^2.2.0",
     "axios": "^0.20.0",
     "chalk": "^4.1.0",
     "fs-extra": "^9.0.1",
